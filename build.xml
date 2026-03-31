@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding='UTF-8' standalone='yes'?>
+<project name="games" default="all" basedir=".">
+
+  <!-- ******************************************************* -->
+  <!-- Verwendung des Property-Files hängt von der Umgebung ab -->
+  <!-- ******************************************************* -->
+  <property file="properties/build.test.properties"/>
+  <!-- property file="properties/build.meta.properties"/    -->
+  <!-- property file="properties/build.privat.properties"/  -->
+
+  <!-- ************** -->
+  <!-- General Target -->
+  <!-- ************** -->
+  <target name="all" depends="clean,prepare,compile,compile-test,test,deploy,run"/>
+
+  <!-- ******************************************************* -->
+  <!-- Target clean löscht die Artefakte der Laufzeitumgebung  -->
+  <!-- ******************************************************* -->
+  <target name="clean">
+    <delete dir="${runtime.build}"/>
+    <delete dir="${runtime.properties}"/>
+    <delete dir="${runtime.metainf}"/>
+    <delete file="${runtime.games}/games.jar"/>
+  </target>
+
+  <!-- *************************************************************** -->
+  <!-- Target prepare bereitet die Artefakte der Laufzeitumgebung vor -->
+  <!-- *************************************************************** -->
+  <target name="prepare" depends="clean">
+    <mkdir dir="${runtime.build}"/>
+    <mkdir dir="${runtime.properties}"/>
+    <mkdir dir="${runtime.metainf}"/>
+  </target>
+
+  <!-- ******************************************************* -->
+  <!-- Target compile übersetzt die Quellen in Klassenobjekte  -->
+  <!-- ******************************************************* -->
+  <target name="compile" description="Übersetzung der Quellen" depends="prepare">
+    <javac srcdir="${project.source}" destdir="${runtime.build}" includeantruntime="false" deprecation="off">
+      <classpath>
+        <pathelement path="${runtime.build}"/>
+        <pathelement location="${log4j.api}/log4j-api-2.11.1.jar"/>
+        <pathelement location="${log4j.api}/log4j-core-2.11.1.jar"/>
+        <pathelement location="${commons.api}/commons-io-2.6.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- ********************************************* -->
+  <!-- Target compile-test übersetzt die Testtreiber -->
+  <!-- ********************************************* -->
+  <target name="compile-test" depends="compile">
+    <javac srcdir="${project.test}" destdir="${runtime.test}" includeantruntime="false">
+      <classpath>
+        <pathelement location="${junit.api}/junit-jupiter-api-5.6.1.jar"/>
+        <pathelement path="${runtime.build}"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- ************************************************************************************+* -->
+  <!-- Target test führt die Tests durch                                                      -->
+  <!-- ACHTUNG: die jupiter- und junit-apis werden in den ant/lib-Ordner von IntelliJ kopiert -->
+  <!-- ************************************************************************************** -->
+  <target name="test" depends="compile-test">
+    <junitlauncher>
+      <classpath>
+        <pathelement path="${junit.api}"/>
+        <pathelement path="${runtime.test}"/>
+        <pathelement path="${runtime.build}"/>
+      </classpath>
+      <testclasses outputdir="${runtime.output}">
+        <fileset dir="${runtime.test}"/>
+        <listener type="legacy-brief" sendSysOut="true"/>
+        <listener type="legacy-xml" sendSysErr="true" sendSysOut="true"/>
+      </testclasses>
+    </junitlauncher>
+  </target>
+
+  <!-- ****************************************************************************** -->
+  <!-- Target deploy sorgt für die Auslieferung der Anwendung in die Laufzeitumgebung -->
+  <!-- ****************************************************************************** -->
+  <target name="deploy" description="Auslieferung der Anwendung" depends="compile">
+    <copy file="${project.properties}/games.properties" todir="${runtime.properties}"/>
+    <copy file="${project.properties}/log4j2.xml" todir="${runtime.properties}"/>
+    <copy file="${project.metainf}/MANIFEST.MF" todir="${runtime.metainf}"/>
+    <jar destfile="${runtime.games}/games.jar"
+         basedir="${runtime.build}"
+         manifest="${runtime.metainf}/MANIFEST.MF">
+    </jar>
+  </target>
+
+  <!-- ******************************************************** -->
+  <!-- Target run startet die Anwendung in der Laufzeitumgebung -->
+  <!-- ******************************************************** -->
+  <target name="run" description="Ausführung der Anwendung" depends="deploy">
+    <java jar="${runtime.games}/games.jar" fork="yes">
+      <sysproperty key="log4j.configurationFile" value="file://${runtime.properties}/log4j2.xml"/>
+    </java>
+  </target>
+
+</project>

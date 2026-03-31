@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- Definition der Appenders Console und des Appenders File -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<Appenders>
+ 
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss:SSS} %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<File name="File"
+			fileName="${sys:log.path}/output_${date:yyyy}_${date:MM}_${date:dd}_${date:HH}_${date:mm}_${date:ss}_${date:SSS}.log"
+			bufferedIO="true">
+			<PatternLayout pattern="%d{HH:mm:ss:SSS} %-5level %logger{36} - %msg%n" />
+		</File>
+
+	</Appenders>
+
+	<!-- +++++++++++++++++++++ -->
+	<!-- Definition der Logger -->
+	<!-- +++++++++++++++++++++ -->
+	<Loggers>
+
+		<Root level="trace">
+			<AppenderRef ref="File" />
+			<AppenderRef ref="Console" />
+		</Root>
+
+	</Loggers>
+	
+</Configuration>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: de.domain.games.control.MainRun
+Class-Path: ./properties/
+  ./../../Libraries/apache-log4j-2.11.1-bin/log4j-api-2.11.1.jar
+  ./../../Libraries/apache-log4j-2.11.1-bin/log4j-core-2.11.1.jar
+  ./../../Libraries/commons-io-2.6/commons-io-2.6.jar
