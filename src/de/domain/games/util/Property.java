@@ -41,29 +41,30 @@ public class Property {
 	private static String basePathTest;
 	private static String basePathTim;
 
-	// Statische Variablen für die Testpfade
-	// private static String testPathMeta;
-	// private static String testPathSchmi;
-	// private static String testPathPrivat;
-	// private static String testPathTest;
-	// private static String testPathTim;
-
-	// Statische Variablen für die Datenpfade
+		// Statische Variablen für die Datenpfade
 	private static String dataPathMeta;
 	private static String dataPathSchmi;
 	private static String dataPathPrivat;
 	private static String dataPathTest;
 	private static String dataPathTim;
 
-	// Statische Variablen für die Buttons
+	// Statische Variablen für die Eröffnungs-Buttons
 	private static String buttonWhite;
 	private static String buttonBlack;
 	private static String buttonTimWhite;
 	private static String buttonTimBlack;
+
+	// Statische Variablen für die weiteren Buttons
 	private static String buttonTournament;
 	private static String buttonArchive;
 	private static String buttonClear;
 	private static String buttonBook;
+
+	// Statische Variablen für die Github-Buttons
+	private static String buttonPushWhite;
+	private static String buttonPushBlack;
+	private static String buttonPushTimWhite ;
+	private static String buttonPushTimBlack;
 
 	// Sonstige Variablen
 	private static String errorHost;
@@ -119,22 +120,23 @@ public class Property {
 		dataPathTest = "datapath.test";
 		dataPathTim = "datapath.tim";
 
-		// Setzen der Testpfade
-		// testPathMeta = "testpath.meta";
-		// testPathSchmi = "testpath.schmi";
-		// testPathPrivat = "testpath.privat";
-		// testPathTest = "testpath.test";
-		// testPathTim = "testpath.tim";
-
-		// Setzen der Buttons
+		// Setzen der Eröffnungs-Buttons
 		buttonWhite = "button.white";
 		buttonBlack = "button.black";
 		buttonTimWhite = "button.timWhite";
 		buttonTimBlack = "button.timBlack";
+
+		// Setzen der weiteren Buttons
 		buttonTournament = "button.tournament";
 		buttonArchive = "button.archive";
 		buttonClear = "button.clear";
 		buttonBook = "button.book";
+
+		// Setzen der Buttons für Github
+		buttonPushWhite = "button.pushWhite";
+		buttonPushBlack = "button.pushBlack";
+		buttonPushTimWhite = "button.pushTimWhite";
+		buttonPushTimBlack = "button.pshuTimBlack";
 
 		// Setzen der sonstigen Keys
 		frameTitle = "frame.title";
