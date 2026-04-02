@@ -9,36 +9,28 @@ import org.junit.jupiter.api.Test;
 class PropertyTest {
 
 	// Erwartungswerte für die PC-Namen
-	public final static String EXPECTED_META_PC = "20H0417";
+	public final static String EXPECTED_META_PC = "22H0566";
 	public final static String EXPECTED_PRIVAT_PC = "DESKTOP-3NCAR95";
-	public final static String EXPECTED_SCHMI_PC = "LAPTOP-LR4C72NS";
+	public final static String EXPECTED_SCHMI_PC = "DESKTOP-Q6O0UGB";
 	public final static String EXPECTED_TEST_PC = "DESKTOP-LERLCJ6";
-	public final static String EXPECTED_TIM_PC = "Tim-PC";
 
 	// Erwartungswerte für die Logging-Pfade
 	public final static String EXPECTED_LOGPATH_META = "C:\\Users\\TSZ\\Daten\\Java\\Applications\\games\\logs";
 	public final static String EXPECTED_LOGPATH_SCHMI = "C:\\Users\\schmi\\Daten\\Java\\Applications\\games\\logs";
 	public final static String EXPECTED_LOGPATH_PRIVAT = "C:\\Users\\Privat\\Daten\\Java\\Applications\\games\\logs";
 	public final static String EXPECTED_LOGPATH_TEST = "C:\\Users\\test\\Daten\\Java\\Applications\\games\\logs";
-	public final static String EXPECTED_LOGPATH_TIM = "C:\\Users\\Tim\\Daten\\Java\\Applications\\games\\logs";
 
 	// Erwartungswerte für die Basispfade
 	public final static String EXPECTED_BASEPATH_META = "C:\\Users\\TSZ\\Documents\\ChessBase\\TimBase";
 	public final static String EXPECTED_BASEPATH_PRIVAT = "C:\\Users\\Privat\\Documents\\ChessBase\\TimBase";
 	public final static String EXPECTED_BASEPATH_SCHMI = "C:\\Users\\schmi\\Documents\\ChessBase\\TimBase";
 	public final static String EXPECTED_BASEPATH_TEST = "C:\\Users\\test\\Documents\\ChessBase\\TimBase";
-	public final static String EXPECTED_BASEPATH_TIM = "C:\\Users\\Tim\\Documents\\ChessBase\\TimBase";
-
-	// Erwartungswerte für die Testpfade
-	// public final static String EXPECTED_TESTPATH_META = "C:\\Users\\TSZ\\Documents\\ChessBase\\TestBase";
-	// public final static String EXPECTED_TESTPATH_PRIVAT = "C:\\Users\\Privat\\Documents\\ChessBase\\TestBase";
-	// public final static String EXPECTED_TESTPATH_SCHMI = "C:\\Users\\schmi\\Documents\\ChessBase\\TestBase";
-	// public final static String EXPECTED_TESTPATH_TEST = "C:\\Users\\test\\Documents\\ChessBase\\TestBase";
-	// public final static String EXPECTED_TESTPATH_TIM = "C:\\Users\\Tim\\Documents\\ChessBase\\TestBase";
 
 	// Erwartungswertue für die Buttons
 	public final static String EXPECTED_BUTTON_WHITE = "NeuWeiss";
 	public final static String EXPECTED_BUTTON_BLACK = "NeuSchwarz";
+	public final static String EXPECTED_BUTTON_TIM_WHITE = "TimWeiss";
+	public final static String EXPECTED_BUTTON_TIM_BLACK = "TimSchwarz";
 	public final static String EXPECTED_BUTTON_TOURNAMENT = "Turnier";
 	public final static String EXPECTED_BUTTON_ARCHIVE = "Archiv";
 	public final static String EXPECTED_BUTTON_CLEAR = "Leeren";
@@ -82,11 +74,6 @@ class PropertyTest {
 		assertEquals(EXPECTED_TEST_PC, Property.getTestPC());
 	}
 
-	@Test
-	void testGetTimPC() {
-		assertEquals(EXPECTED_TIM_PC, Property.getTimPC());
-	}
-
 	//------------------------//
 	// Test der Logging-Pfade //
 	//------------------------//
@@ -110,9 +97,6 @@ class PropertyTest {
 		assertEquals(EXPECTED_LOGPATH_TEST, Property.getLogPathTest());
 	}
 
-	@Test
-	void testGetLogPathTim() { assertEquals(EXPECTED_LOGPATH_TIM, Property.getLogPathTim()); }
-
 	//---------------------//
 	// Test der Basispfade //
 	//---------------------//
@@ -134,39 +118,6 @@ class PropertyTest {
 		assertEquals(EXPECTED_BASEPATH_TEST, Property.getBasePathTest());
 	}
 
-	@Test
-	void testGetBasePathTim() {
-		assertEquals(EXPECTED_BASEPATH_TIM, Property.getBasePathTim());
-	}
-
-	//--------------------//
-	// Test der Testpfade //
-	//--------------------//
-	/*
-	@Test
-	void testGetTestPathMeta() {
-		assertEquals(EXPECTED_TESTPATH_META, Property.getTestPathMeta());
-	}
-
-	@Test
-	void testGetTestPathPrivat() { assertEquals(EXPECTED_TESTPATH_PRIVAT, Property.getDataPathPrivat());	}
-
-	@Test
-	void testGetTestPathSchmi() {
-		assertEquals(EXPECTED_TESTPATH_SCHMI, Property.getTestPathSchmi());
-	}
-
-	@Test
-	void testGetTestPathTest() {
-		assertEquals(EXPECTED_TESTPATH_TEST, Property.getTestPathTest());
-	}
-
-	@Test
-	void testGetTestPathTim() {
-		assertEquals(EXPECTED_TESTPATH_TIM, Property.getTestPathTim());
-	}
-	*/
-
 	//------------------//
 	// Test der Buttons //
 	//------------------//
@@ -178,6 +129,16 @@ class PropertyTest {
 	@Test
 	void testGetButtonBlack() {
 		assertEquals(EXPECTED_BUTTON_BLACK, Property.getButtonBlack());
+	}
+
+	@Test
+	void testGetButtonTimWhite() {
+		assertEquals(EXPECTED_BUTTON_TIM_WHITE, Property.getButtonTimWhite());
+	}
+
+	@Test
+	void testGetButtonTimBlack() {
+		assertEquals(EXPECTED_BUTTON_TIM_BLACK, Property.getButtonTimBlack());
 	}
 
 	@Test

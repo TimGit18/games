@@ -11,6 +11,7 @@ class MainRunTest {
 
 	// Statische Variablen für den Test
 	public final static String EXPECTED_TEST_PC = "DESKTOP-LERLCJ6";
+	public final static String EXPECTED_SCHMI_PC = "DESKTOP-Q6O0UGB";
 	public final static String EXPECTED_LOGPATH_TEST = "C:\\Users\\test\\Daten\\Java\\Applications\\games\\logs";
 	public final static String EXPECTED_BASEPATH_TEST = "C:\\Users\\test\\Documents\\ChessBase\\TimBase";
 
@@ -28,8 +29,8 @@ class MainRunTest {
 	 * Umgebung angepasst werden.
 	 */
 	@Test
-	void testGetHostNameTest() {
-	 assertEquals(EXPECTED_TEST_PC, MainRun.getHostName());
+	void testGetHostNameSchmi() {
+	 assertEquals(EXPECTED_SCHMI_PC, MainRun.getHostName());
 	 }
 	
 	@Test

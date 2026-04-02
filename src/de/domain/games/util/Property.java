@@ -368,8 +368,6 @@ public class Property {
 		return properties.getProperty(dataPathTim);
 	}
 
-
-
 	//-----------------------//
 	// Ermitteln der Buttons //
 	//-----------------------//
@@ -442,6 +440,35 @@ public class Property {
 	 * @return buttonBookValue
 	 */
 	public static String getButtonBook() { return properties.getProperty(buttonBook) ;}
+
+	/**
+	 * Die Methode getButtonPushWhite() liefert den Namen für den Push White-Button.
+	 *
+	 * @return buttonPushWhiteValue
+	 */
+	public static String getButtonPushWhite() { return properties.getProperty(buttonPushWhite) ;}
+
+	/**
+	 * Die Methode getButtonPushBlack() liefert den Namen für den Push Black-Button.
+	 *
+	 * @return buttonPushBlackValue
+	 */
+	public static String getButtonPushBlack() { return properties.getProperty(buttonPushBlack) ;}
+
+	/**
+	 * Die Methode getButtonPushTimWhite() liefert den Namen für den Push TimWhite-Button.
+	 *
+	 * @return buttonPushTimWhiteValue
+	 */
+	public static String getButtonPushTimWhite() { return properties.getProperty(buttonPushTimWhite) ;}
+
+	/**
+	 * Die Methode getButtonPushTimBlack() liefert den Namen für den Push TimBlack-Button.
+	 *
+	 * @return buttonPushTimBlackValue
+	 */
+	public static String getButtonPushTimBlack() { return properties.getProperty(buttonPushTimBlack) ;}
+
 
 	//-----------------------------------//
 	// Ermitteln der sonstigen Parameter //
