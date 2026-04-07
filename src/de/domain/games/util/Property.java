@@ -60,17 +60,12 @@ public class Property {
 	private static String buttonClear;
 	private static String buttonBook;
 
-	// Statische Variablen für die Github-Buttons
-	private static String buttonPushWhite;
-	private static String buttonPushBlack;
-	private static String buttonPushTimWhite ;
-	private static String buttonPushTimBlack;
-
 	// Sonstige Variablen
 	private static String errorHost;
 	private static String frameTitle;
 	private static String displayTitle;
 	private static String controlTitle;
+	private static String repoTitle;
 	private static String openingPath;
 
 	/**
@@ -132,16 +127,11 @@ public class Property {
 		buttonClear = "button.clear";
 		buttonBook = "button.book";
 
-		// Setzen der Buttons für Github
-		buttonPushWhite = "button.pushWhite";
-		buttonPushBlack = "button.pushBlack";
-		buttonPushTimWhite = "button.pushTimWhite";
-		buttonPushTimBlack = "button.pshuTimBlack";
-
 		// Setzen der sonstigen Keys
 		frameTitle = "frame.title";
 		displayTitle = "display.title";
 		controlTitle = "control.title";
+		repoTitle = "repo.title";
 		errorHost = "error.host";
 		openingPath = "opening.path";
 	}
@@ -245,15 +235,6 @@ public class Property {
 		return properties.getProperty(logPathTest);
 	}
 
-	/**
-	 * Die Methode getLogPathTest() ermittelt den Logging Pfad auf Tim-PC
-	 *
-	 * @return logPathTimValue
-	 */
-	public static String getLogPathTim() {
-		return properties.getProperty(logPathTim);
-	}
-
 	//---------------------------//
 	// Ermitteln der Basis-Pfade //
 	//---------------------------//
@@ -293,27 +274,15 @@ public class Property {
 		return properties.getProperty(basePathTest);
 	}
 
-	/**
-	 * Die Methode getBasePathTim() ermittelt den Basis-Pfad auf Tim-PC
-	 *
-	 * @return basePathTimValue
-	 */
-	public static String getBasePathTim() {
-		return properties.getProperty(basePathTim);
-	}
 
 	//--------------------------//
-	// Ermitteln der Test-Pfade //
 	// Ermitteln der Data-Pfade //
 	//--------------------------//
 	/**
 	 * Die Methode getTestPathMeta() ermittelt den Test-Pfad auf Meta-PC
 	 *
 	 * @return testPathMetaValue
-	public static String getTestPathMeta() {
-		return properties.getProperty(testPathMeta);
-	}	 */
-
+	 */
 	public static String getDataPathMeta() {
 		return properties.getProperty(dataPathMeta);
 	}
@@ -322,23 +291,16 @@ public class Property {
 	 * Die Methode getTestPathSchmi() ermittelt den Test-Pfad auf dem Schmi-PC
 	 *
 	 * @return testPathSchmiValue
-
-	public static String getTestPathSchmi() {
-		return properties.getProperty(testPathSchmi);
-	}
 	 */
 	public static String getDataPathSchmi() {
 		return properties.getProperty(dataPathSchmi);
 	}
 
-		/**
-         * Die Methode getTestPathPrivat() ermittelt den Test-Pfad auf PRIVAT-PC
-         *
-         * @return testPathPrivatValue
-	public static String getDataPathPrivat() {
-		return properties.getProperty(dataPathPrivat);
-	}         */
-
+	/**
+     * Die Methode getTestPathPrivat() ermittelt den Test-Pfad auf PRIVAT-PC
+     *
+     * @return testPathPrivatValue
+     */
 	public static String getDataPathPrivat() {
 			return properties.getProperty(dataPathPrivat);
 	}
@@ -347,25 +309,9 @@ public class Property {
 	 * Die Methode getTestPathTest() ermittelt den Test-Pfad auf DESKTOP-LERLCJ6
 	 *
 	 * @return testPathTestValue
-	public static String getTestPathTest() {
-		return properties.getProperty(testPathTest);
-	}
 	 */
 	public static String getDataPathTest() {
 		return properties.getProperty(dataPathTest);
-	}
-
-	/**
-	 * Die Methode getTestPathTim() ermittelt den Test-Pfad auf Tim-PC
-	 *
-	 * @return testPathTimValue
-
-	public static String getTestPathTim() {
-		return properties.getProperty(testPathTim);
-	}
-	 */
-	public static String getDataPathTim() {
-		return properties.getProperty(dataPathTim);
 	}
 
 	//-----------------------//
@@ -376,9 +322,7 @@ public class Property {
 	 * 
 	 * @return buttonWhiteValue
 	 */
-	public static String getButtonWhite() {
-		return properties.getProperty(buttonWhite);
-	}
+	public static String getButtonWhite() { return properties.getProperty(buttonWhite);	}
 
 	/**
 	 * Die Methode getButtonBlack() liefert den Namen für den Schwarz-Button.
@@ -441,34 +385,6 @@ public class Property {
 	 */
 	public static String getButtonBook() { return properties.getProperty(buttonBook) ;}
 
-	/**
-	 * Die Methode getButtonPushWhite() liefert den Namen für den Push White-Button.
-	 *
-	 * @return buttonPushWhiteValue
-	 */
-	public static String getButtonPushWhite() { return properties.getProperty(buttonPushWhite) ;}
-
-	/**
-	 * Die Methode getButtonPushBlack() liefert den Namen für den Push Black-Button.
-	 *
-	 * @return buttonPushBlackValue
-	 */
-	public static String getButtonPushBlack() { return properties.getProperty(buttonPushBlack) ;}
-
-	/**
-	 * Die Methode getButtonPushTimWhite() liefert den Namen für den Push TimWhite-Button.
-	 *
-	 * @return buttonPushTimWhiteValue
-	 */
-	public static String getButtonPushTimWhite() { return properties.getProperty(buttonPushTimWhite) ;}
-
-	/**
-	 * Die Methode getButtonPushTimBlack() liefert den Namen für den Push TimBlack-Button.
-	 *
-	 * @return buttonPushTimBlackValue
-	 */
-	public static String getButtonPushTimBlack() { return properties.getProperty(buttonPushTimBlack) ;}
-
 
 	//-----------------------------------//
 	// Ermitteln der sonstigen Parameter //
@@ -489,7 +405,6 @@ public class Property {
 	 * 
 	 * @return frameTitleValue
 	 */
-
 	public static String getFrameTitle() {
 		return properties.getProperty(frameTitle);
 	}
@@ -500,7 +415,6 @@ public class Property {
 	 * 
 	 * @return displayTitleValue
 	 */
-
 	public static String getDisplayTitle() {
 		return properties.getProperty(displayTitle);
 	}
@@ -511,9 +425,18 @@ public class Property {
 	 * 
 	 * @return controlTitleValue
 	 */
-
 	public static String getControlTitle() {
 		return properties.getProperty(controlTitle);
+	}
+
+	/**
+	 * Die Methode getRepoTitle() ermittelt den Namen der auf dem Rand des
+	 * Repository-Panels des Dialogs gezeigt wird.
+	 *
+	 * @return RepoTitleValue
+	 */
+	public static String getRepoTitle() {
+		return properties.getProperty(repoTitle);
 	}
 
 	/**

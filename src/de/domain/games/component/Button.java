@@ -88,5 +88,18 @@ public class Button {
         activatableButton.addActionListener(actionListener);
     }
 
+    /*
+        public static void activatePush(JButton activatablePushButton, JTextArea textArea, String selection) {
+            LOG.trace("Activate Push Button " + activatablePushButton.getText());
+            if (selection.equals(Property.getButtonWhite())) {
+                actionListener = new ActionListenerPushWhite(textArea, selection);
+            }
+            else if (selection.equals(Property.getButtonBlack())) { ... }
+            ...
+        }
+     */
+
+
+
 }
 

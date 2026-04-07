@@ -37,6 +37,7 @@ class PropertyTest {
 
 	// Sonstige Erwartungswerte
 	public final static String EXPECTED_CONTROL_TITLE = "Steuerung";
+	public final static String EXPECTED_REPOSITORY_TITLE = "Repository";
 	public final static String EXPECTED_DISPLAY_TITLE = "Anzeige";
 	public final static String EXPECTED_ERROR_HOST = "Kein Computername definiert";
 	public final static String EXPECTED_FRAME_TITLE = "Partien";
@@ -177,6 +178,11 @@ class PropertyTest {
 	@Test
 	void testGetControlTitle() {
 		assertEquals(EXPECTED_CONTROL_TITLE, Property.getControlTitle());
+	}
+
+	@Test
+	void testGetRepoTitle() {
+		assertEquals(EXPECTED_REPOSITORY_TITLE, Property.getRepoTitle());
 	}
 
 	@Test

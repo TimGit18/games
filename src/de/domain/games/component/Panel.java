@@ -20,12 +20,14 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Die Klasse Panel verwaltet alle Panel-Komponenten der Anwendung. Insgesamt
- * existieren innerhalb der Anwendung drei Panels:
+ * existieren innerhalb der Anwendung vier Panels:
  * 
- * Das Dialog-Panel bildet das Basis-Panel, das Control-Panel ist das Panel für
- * die Steuerungselemente und das Display-Panel ist das Panel für die Anzeige
- * der Ergebnisse.
- * 
+ * <ol>
+ *    	<li>Das Dialog-Panel bildet das Basis-Panel</li>
+ *    	<li>Das Control-Panel ist das Panel für die Steuerungselemente</li>
+ *    	<li>Das Repository-Panel ist das Panel für die Commits der Datenbanken</li>
+ *  	<li>Das Display-Panel ist das Panel für die Anzeige der Ergebnisse</li>
+ * </ol>
  * 
  * @author Tim Schmitz
  *
@@ -46,6 +48,13 @@ public class Panel {
 	private static TitledBorder controlTitledBorder = null;
 	private static LayoutManager controlLayoutManager = null;
 
+	// Variablen für das Repository-Panel
+	private static JPanel repoPanel = null;
+	private static Border repoBorder = null;
+	private static CompoundBorder repoCompoundBorder = null;
+	private static TitledBorder repoTitledBorder = null;
+	private static LayoutManager repoLayoutManager = null;
+
 	// Variablen für das Display-Panel
 	private static JPanel displayPanel = null;
 	private static Border displayBorder = null;
@@ -59,14 +68,52 @@ public class Panel {
 	private static JTextArea scrollTextArea = null;
 
 	/**
+	 * Die Methode addButtonToControlPanel fügt einen Button, der als Parameter
+	 * übergeben wird, dem Steuerungspanel hinzu. Zurückgegeben wird das Panel.
+	 *
+	 * @param controlButton
+	 * @return controlPanel
+	 */
+	public static JPanel addButtonToControlPanel(JButton controlButton) {
+		LOG.trace("Hinzuf\u00fcgen des Buttons " + controlButton.getText() + " zu Steuerung-Panel");
+		controlPanel.add(controlButton);
+		return controlPanel;
+	}
+
+	/**
+	 * Die Methode addButtonToRepoPanel fügt einen Button, der als Parameter
+	 * übergeben wird, dem  Repository-Panel hinzu. Zurückgegeben wird das Panel.
+	 *
+	 * @param repoButton
+	 * @return repoPanel
+	 */
+	public static JPanel addButtonToRepoPanel(JButton repoButton) {
+		LOG.trace("Hinzuf\u00fcgen des Buttons " + repoButton.getText() + " zu Repository-Panel");
+		repoPanel.add(repoButton);
+		return repoPanel;
+	}
+
+
+	/**
 	 * Die Methode getControlPanel() liefert das Control-Panel zurück
 	 * 
 	 * @return controlPanel
 	 */
 	public static JPanel getControlPanel() {
-		LOG.trace("Holen des Dialog-Panels");
+		LOG.trace("Holen des Controls-Panels");
 		return controlPanel;
 	}
+
+	/**
+	 * Die Methode getRepoPanel() liefert das Control-Panel zurück
+	 *
+	 * @return repoPanel
+	 */
+	public static JPanel getRepoPanel() {
+		LOG.trace("Holen des Repository-Panels");
+		return repoPanel;
+	}
+
 
 	/**
 	 * Die Methode getDialogPanel() liefert das Dialog-Panel zurück
@@ -93,7 +140,6 @@ public class Panel {
 	 * 
 	 * @return scrollPane
 	 */
-
 	public static JScrollPane getScrollPane() {
 		LOG.trace("Holen der ScrollPane");
 		return scrollPane;
@@ -104,7 +150,6 @@ public class Panel {
 	 * 
 	 * @return scrollTextArea
 	 */
-
 	public static JTextArea getScrollTextArea() {
 		LOG.trace("Holen der ScrollTextArea");
 		return scrollTextArea;
@@ -117,12 +162,11 @@ public class Panel {
 	 * 
 	 * @param controlTitle
 	 */
-
 	public static void setControlPanel(String controlTitle) {
-		LOG.trace("Setzen des Display-Panels");
+		LOG.trace("Setzen des Control-Panels");
 		controlPanel = new JPanel();
 
-		LOG.trace("Erzeugen der Border des Display-Panels");
+		LOG.trace("Erzeugen der Border des Control-Panels");
 		controlTitledBorder = BorderFactory.createTitledBorder(controlTitle);
 		controlBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 		controlCompoundBorder = BorderFactory.createCompoundBorder(controlTitledBorder, controlBorder);
@@ -133,21 +177,33 @@ public class Panel {
 		LOG.trace("Setzen des Layouts des Control-Panels");
 		controlLayoutManager = new BoxLayout(controlPanel, BoxLayout.LINE_AXIS);
 		controlPanel.setLayout(controlLayoutManager);
-
 	}
 
 	/**
-	 * Die Methode addButtonToControlPanel fügt einen Button, der als Parameter
-	 * übergeben wird, dem Steuerungspanel hinzu. Zurückgegeben wird das Panel.
-	 * 
-	 * @param controlButton
-	 * @return controlPanel
+	 * Die Methode setRepositoryPanel() setzt das Repository-Panel fest. Zunächst wird
+	 * die Border als Kombination einer gitelten und einer leeren Border erzeugt.
+	 * Anschließend wird für das noch leere Panel die Border gesetzt und das Layout.
+	 *
+	 * @param repoTitle
 	 */
-	public static JPanel addButtonToControlPanel(JButton controlButton) {
-		LOG.trace("Hinzuf\u00fcgen des Buttons " + controlButton.getText() + " zu Steuerung-Panel");
-		controlPanel.add(controlButton);
-		return controlPanel;
+	public static void setRepositoryPanel(String repoTitle) {
+		LOG.trace("Setzen des Repo-Panels");
+		repoPanel = new JPanel();
+
+		LOG.trace("Erzeugen der Border des Repo-Panels");
+		repoTitledBorder = BorderFactory.createTitledBorder(repoTitle);
+		repoBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+		repoCompoundBorder = BorderFactory.createCompoundBorder(repoTitledBorder, repoBorder);
+
+		LOG.trace("Setzen der Border des Repo-Panels");
+		repoPanel.setBorder(repoCompoundBorder);
+
+		LOG.trace("Setzen des Layouts des Repo-Panels");
+		repoLayoutManager = new BoxLayout(repoPanel, BoxLayout.LINE_AXIS);
+		repoPanel.setLayout(repoLayoutManager);
 	}
+
+
 
 	/**
 	 * Die Methode setDialogPanel() erzeugt ein statisches Panel für den Dialog. Sie
@@ -194,7 +250,6 @@ public class Panel {
 	 * ist und einen Text anzeigt. Die Größe des Felds orientiert sich an der des
 	 * übergeordneten Dialog-Panels
 	 */
-
 	public static void setScrollPane() {
 		LOG.trace("Setzen der Scroll Pane");
 		scrollDimension = new Dimension(500, 200);
@@ -207,7 +262,6 @@ public class Panel {
 	 * Die Methode setScrollTextArea setzt eine nicht-editierbare TextArea, die dann
 	 * dem ScrollPane hinzugefügt wird.
 	 */
-
 	public static void setScrollTextArea() {
 		LOG.trace("Setzen der Scroll Text Area");
 		scrollTextArea = new JTextArea();
