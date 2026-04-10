@@ -99,7 +99,6 @@ public class Dialog {
     private static JButton buttonPushTimWhite;
     private static JButton buttonPushTimBlack;
     private static JButton buttonPushTournament;
-    private static JButton buttonPushArchive;
     private static JButton buttonPushBook;
 
     /**
@@ -180,8 +179,6 @@ public class Dialog {
         buttonPushTimBlack = Button.getButton();
         Button.setButton(PUSH_TOURNAMENT);
         buttonPushTournament = Button.getButton();
-        Button.setButton(PUSH_ARCHIVE);
-        buttonPushArchive = Button.getButton();
         Button.setButton(PUSH_BOOK);
         buttonPushBook = Button.getButton();
 
@@ -198,13 +195,18 @@ public class Dialog {
         Button.activate(buttonBook, textArea, bookPaths, BOOK);
 
         LOG.trace("***********************************");
-        LOG.trace("Step 9: Erzeugen des Control-Panels");
+        LOG.trace("Step 9: Aktivieren der Push-Buttons");
         LOG.trace("***********************************");
+        Button.activatePush(buttonPushWhite,textArea,WHITE);
+
+        LOG.trace("************************************");
+        LOG.trace("Step 10: Erzeugen des Control-Panels");
+        LOG.trace("************************************");
         Panel.setControlPanel(CONTROL);
         controlPanel = Panel.getControlPanel();
 
         LOG.trace("**************************************");
-        LOG.trace("Step 10: Hinzuf\u00fcgen der Control-Buttons");
+        LOG.trace("Step 11: Hinzuf\u00fcgen der Control-Buttons");
         LOG.trace("**************************************");
         controlPanel = Panel.addButtonToControlPanel(buttonWhite);
         controlPanel = Panel.addButtonToControlPanel(buttonBlack);
@@ -216,48 +218,47 @@ public class Dialog {
         controlPanel = Panel.addButtonToControlPanel(buttonClear);
 
         LOG.trace("*******************************************************");
-        LOG.trace("Step 11: Hinzuf\u00fcgen des Control-Panels zum Dialog-Panel");
+        LOG.trace("Step 12: Hinzuf\u00fcgen des Control-Panels zum Dialog-Panel");
         LOG.trace("*******************************************************");
         dialogControlPanel = Builder.setComponentToPanel(controlPanel, 0, 0, 1,
                 1, 0.5, 0.5, 1, 1, dialogLayoutPanel);
 
         LOG.trace("***************************************");
-        LOG.trace("Step 12: Erzeugen des Repository-Panels");
+        LOG.trace("Step 13: Erzeugen des Repository-Panels");
         LOG.trace("***************************************");
         Panel.setRepositoryPanel(REPO);
         repoPanel = Panel.getRepoPanel();
 
         LOG.trace("**************************************");
-        LOG.trace("Step 13: Hinzuf\u00fcgen der Repo-Buttons");
+        LOG.trace("Step 14: Hinzuf\u00fcgen der Repo-Buttons");
         LOG.trace("**************************************");
         repoPanel = Panel.addButtonToRepoPanel(buttonPushWhite);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushBlack);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushTimWhite);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushTimBlack);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushTournament);
-        repoPanel = Panel.addButtonToRepoPanel(buttonPushArchive);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushBook);
 
         LOG.trace("*******************************************************");
-        LOG.trace("Step 14: Hinzuf\u00fcgen des Repo-Panels zum Dialog-Panel");
+        LOG.trace("Step 15: Hinzuf\u00fcgen des Repo-Panels zum Dialog-Panel");
         LOG.trace("*******************************************************");
         dialogRepoPanel = Builder.setComponentToPanel(repoPanel, 0, 1, 1,
                 1, 0.5, 0.5, 1, 1, dialogControlPanel);
 
         LOG.trace("*******************************************************");
-        LOG.trace("Step 15: Hinzuf\u00fcgen des Display-Panels zum Dialog-Panel");
+        LOG.trace("Step 16: Hinzuf\u00fcgen des Display-Panels zum Dialog-Panel");
         LOG.trace("*******************************************************");
         dialogFullPanel = Builder.setComponentToPanel(displayPanel, 0, 2, 1,
                 2, 0.5, 0.5, 1, 1, dialogRepoPanel);
 
         LOG.trace("***********************************************");
-        LOG.trace("Step 16: Hinzuf\u00fcgen des Dialog-Panels zum Frame");
+        LOG.trace("Step 17: Hinzuf\u00fcgen des Dialog-Panels zum Frame");
         LOG.trace("***********************************************");
         dialogFrame = Frame.getFrame();
         dialogComposedFrame = Builder.addPanelToFrame(dialogFullPanel, dialogFrame);
 
         LOG.trace("****************************");
-        LOG.trace("Step 17: Anzeige des Rahmens");
+        LOG.trace("Step 18: Anzeige des Rahmens");
         LOG.trace("****************************");
         Frame.displayFrame(dialogComposedFrame);
     }

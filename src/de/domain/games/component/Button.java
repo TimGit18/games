@@ -13,10 +13,10 @@ import org.apache.logging.log4j.Logger;
 import de.domain.games.util.Property;
 
 /**
- * Die Klasse Button stellt alle Daten und Methoden zur Verfügung, um einen
- * Steuerung-Button für die Anwendung bereitszustellen.
+ * Die Klasse Button stellt alle Daten und Methoden zur Verfügung, um sowohl jeweils einen Steuerung-Button als auch
+ * einen Push-Button für die Anwendung bereitszustellen.
  *
- * @author schmi
+ * @author schmit
  */
 
 public class Button {
@@ -39,8 +39,7 @@ public class Button {
     }
 
     /**
-     * Die Klasse getButton() liefert den Button zurück. Dieser ist als private
-     * Komponente geschützt.
+     * Die Klasse getButton() liefert je einen Button zurück. Dieser ist als private Komponente geschützt.
      *
      * @return button
      */
@@ -51,11 +50,10 @@ public class Button {
     }
 
     /**
-     * Die Methode activate aktiviert den übergebenen Button, indem ein
-     * ActionListener definiert wird, der von den übergebenen Parametern accessPaths
-     * und selection abhängt. Der so definierte ActionListener wird mit einer
-     * TextArea versehen und dem Button hinzugefügt. Die einzige strukturelle
-     * Ausnahme bildet der ActionListenerArchive, der mehr als einen Zugriffspfad
+     * Die Methode activate aktiviert den übergebenen Control-Button, indem ein zugehöriger ActionListener definiert
+     * wird, der von den übergebenen Parametern accessPaths (für die Zugriffspfade) und selection (für die Auswahl)
+     * abhängt. Der so definierte ActionListener wird mit einer TextArea versehen und dem Button hinzugefügt.
+     * Die einzige strukturelle Ausnahme bildet der ActionListenerArchive, der mehr als einen Zugriffspfad
      * verwertet.
      *
      * @param activatableButton
@@ -88,16 +86,19 @@ public class Button {
         activatableButton.addActionListener(actionListener);
     }
 
-    /*
-        public static void activatePush(JButton activatablePushButton, JTextArea textArea, String selection) {
-            LOG.trace("Activate Push Button " + activatablePushButton.getText());
-            if (selection.equals(Property.getButtonWhite())) {
-                actionListener = new ActionListenerPushWhite(textArea, selection);
-            }
-            else if (selection.equals(Property.getButtonBlack())) { ... }
-            ...
+
+    public static void activatePush(JButton activatablePushButton, JTextArea textArea, String selection) {
+        LOG.trace("Activate Push Button " + activatablePushButton.getText());
+        if (selection.equals(Property.getButtonWhite())) {
+            LOG.trace("Push White " + selection);
+            actionListener = new ActionListenerPushWhite(textArea, selection);
+            LOG.trace("Push White " + activatablePushButton.getText());
         }
-     */
+        else if (selection.equals(Property.getButtonBlack())) {
+            // do nthing
+        }
+        activatablePushButton.addActionListener(actionListener);
+    }
 
 
 
