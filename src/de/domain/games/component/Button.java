@@ -90,12 +90,10 @@ public class Button {
     public static void activatePush(JButton activatablePushButton, JTextArea textArea, String selection) {
         LOG.trace("Activate Push Button " + activatablePushButton.getText());
         if (selection.equals(Property.getButtonWhite())) {
-            LOG.trace("Push White " + selection);
             actionListener = new ActionListenerPushWhite(textArea, selection);
-            LOG.trace("Push White " + activatablePushButton.getText());
         }
         else if (selection.equals(Property.getButtonBlack())) {
-            // do nthing
+            actionListener = new ActionListenerPushBlack(textArea, selection);
         }
         activatablePushButton.addActionListener(actionListener);
     }

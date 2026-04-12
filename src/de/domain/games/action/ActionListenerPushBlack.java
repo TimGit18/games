@@ -2,9 +2,11 @@ package de.domain.games.action;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import javax.swing.JTextArea;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -16,10 +18,10 @@ import java.nio.charset.StandardCharsets;
  *
  */
 
-public class ActionListenerPushWhite extends ActionListenerButton {
+public class ActionListenerPushBlack extends ActionListenerButton {
 
 	// Statischer Logger für die Anwendung
-	public static Logger LOG = LogManager.getLogger(ActionListenerPushWhite.class.getName());
+	public static Logger LOG = LogManager.getLogger(ActionListenerPushBlack.class.getName());
 
 	// Statische Variablen für diesen ActionListener
 	public static JTextArea activeTextArea = null;
@@ -33,7 +35,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 	 * @param textArea
 	 * @param selection
 	 */
-	public ActionListenerPushWhite(JTextArea textArea, String selection) {
+	public ActionListenerPushBlack(JTextArea textArea, String selection) {
 		LOG.trace("Erzeuge Action Listener Push f\u00fcr " + selection);
 		activeTextArea = textArea;
 		activeSelection = selection;
