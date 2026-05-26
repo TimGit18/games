@@ -53,7 +53,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 		LOG.trace("Aktuelle Auswahl: " + activeSelection);
 
 		activeTextArea.append("Push " + activeSelection + "...bitte warten\n");
-		ProcessBuilder processBuilder = new ProcessBuilder("C:\\Users\\schmi\\Daten\\Text\\Github\\Proc.bat");
+		ProcessBuilder processBuilder = new ProcessBuilder("C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss.bat");
 		try {
 			Process process = processBuilder.start();
 			InputStream processInputStream = process.getInputStream();

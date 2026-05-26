@@ -198,6 +198,7 @@ public class Dialog {
         LOG.trace("Step 9: Aktivieren der Push-Buttons");
         LOG.trace("***********************************");
         Button.activatePush(buttonPushWhite,textArea,WHITE);
+        Button.activatePush(buttonPushBlack,textArea,BLACK);
 
         LOG.trace("************************************");
         LOG.trace("Step 10: Erzeugen des Control-Panels");
