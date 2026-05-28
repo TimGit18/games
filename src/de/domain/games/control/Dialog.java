@@ -308,16 +308,16 @@ public class Dialog {
         BOOK = Property.getButtonBook();
         LOG.trace("Button Buch: " + BOOK);
 
-        PUSH_WHITE = Property.getButtonWhite();
+        PUSH_WHITE = Property.getButtonPushWhite();
         LOG.trace("Button Wei\u00df: " + PUSH_WHITE);
 
-        PUSH_BLACK = Property.getButtonBlack();
+        PUSH_BLACK = Property.getButtonPushBlack();
         LOG.trace("Button Schwarz: " + PUSH_BLACK);
 
-        PUSH_TIM_WHITE = Property.getButtonTimWhite();
+        PUSH_TIM_WHITE = Property.getButtonPushTimWhite();
         LOG.trace("Button TimWei\u00df: " + PUSH_TIM_WHITE);
 
-        PUSH_TIM_BLACK = Property.getButtonTimBlack();
+        PUSH_TIM_BLACK = Property.getButtonPushTimBlack();
         LOG.trace("Button TimSchwarz: " + PUSH_TIM_BLACK);
 
         PUSH_TOURNAMENT = Property.getButtonTournament();

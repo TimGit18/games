@@ -60,6 +60,14 @@ public class Property {
 	private static String buttonClear;
 	private static String buttonBook;
 
+	// Statische Variablen für die Repository-Buttons
+	private static String buttonPushWhite;
+	private static String buttonPushBlack;
+	private static String buttonPushTimWhite;
+	private static String buttonPushTimBlack;
+	private static String buttonPushTournament;
+	private static String buttonPushBook;
+
 	// Sonstige Variablen
 	private static String errorHost;
 	private static String frameTitle;
@@ -126,6 +134,14 @@ public class Property {
 		buttonArchive = "button.archive";
 		buttonClear = "button.clear";
 		buttonBook = "button.book";
+
+		// Setzen der Repository-Buttons
+		buttonPushWhite = "button.push.white";
+		buttonPushBlack = "button.push.black";
+		buttonPushTimWhite = "button.push.timWhite";
+		buttonPushTimBlack = "button.push.timBlack";
+		buttonPushTournament = "button.push.tournament";
+		buttonPushBook = "button.push.book";
 
 		// Setzen der sonstigen Keys
 		frameTitle = "frame.title";
@@ -314,9 +330,9 @@ public class Property {
 		return properties.getProperty(dataPathTest);
 	}
 
-	//-----------------------//
-	// Ermitteln der Buttons //
-	//-----------------------//
+	//-------------------------------------------------//
+	// Ermitteln der Buttons für die Hauptsteuerleiste //
+	//-------------------------------------------------//
 	/**
 	 * Die Methode getButtonWhite() liefert den Namen für den Weiß-Button.
 	 * 
@@ -384,6 +400,37 @@ public class Property {
 	 * @return buttonBookValue
 	 */
 	public static String getButtonBook() { return properties.getProperty(buttonBook) ;}
+
+	//-------------------------------------------------//
+	// Ermitteln der Buttons für die Repository-Leiste //
+	//-------------------------------------------------//
+	/**
+	 * Die Methode getButtonPushWhite() liefert den Namen für den Push Weiß-Button.
+	 *
+	 * @return buttonPushWhiteValue
+	 */
+	public static String getButtonPushWhite() { return properties.getProperty(buttonPushWhite);	}
+
+	/**
+	 * Die Methode getButtonPushBlack() liefert den Namen für den Push Schwarz-Button.
+	 *
+	 * @return buttonPushBlackValue
+	 */
+	public static String getButtonPushBlack() { return properties.getProperty(buttonPushBlack);	}
+
+	/**
+	 * Die Methode getButtonPushTimWhite() liefert den Namen für den Push TimWeiß-Button.
+	 *
+	 * @return buttonPushTimWhiteValue
+	 */
+	public static String getButtonPushTimWhite() { return properties.getProperty(buttonPushTimWhite);	}
+
+	/**
+	 * Die Methode getButtonPushTimBlack() liefert den Namen für den Push TimSchwarz-Button.
+	 *
+	 * @return buttonPushTimBlackValue
+	 */
+	public static String getButtonPushTimBlack() { return properties.getProperty(buttonPushTimBlack);	}
 
 
 	//-----------------------------------//
