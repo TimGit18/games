@@ -1,5 +1,6 @@
 package de.domain.games.action;
 
+import de.domain.games.control.Dialog;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.swing.JTextArea;
@@ -53,8 +54,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 		LOG.trace("Aktuelle Auswahl: " + activeSelection);
 
 		activeTextArea.append("Push " + activeSelection + "...bitte warten\n");
-		// ProcessBuilder processBuilder = new ProcessBuilder("C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss.bat");
-		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss.bat");
+		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss_1.bat");
 		processBuilder.redirectErrorStream(true);
 		try {
 			Process process = processBuilder.start();

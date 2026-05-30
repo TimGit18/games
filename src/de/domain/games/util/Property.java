@@ -432,6 +432,19 @@ public class Property {
 	 */
 	public static String getButtonPushTimBlack() { return properties.getProperty(buttonPushTimBlack);	}
 
+	/**
+	 * Die Methode getButtonPushTournament() liefert den Namen für den Push Tournament-Button.
+	 *
+	 * @return buttonPushTournamentValue
+	 */
+	public static String getButtonPushTournament() { return properties.getProperty(buttonPushTournament);	}
+
+	/**
+	 * Die Methode getButtonPushBook() liefert den Namen für den Push Buch-Button.
+	 *
+	 * @return buttonPushBookValue
+	 */
+	public static String getButtonPushBook() { return properties.getProperty(buttonPushBook);	}
 
 	//-----------------------------------//
 	// Ermitteln der sonstigen Parameter //

@@ -56,7 +56,6 @@ public class Dialog {
     private static String PUSH_TIM_WHITE;
     private static String PUSH_TIM_BLACK;
     private static String PUSH_TOURNAMENT;
-    private static String PUSH_ARCHIVE;
     private static String PUSH_BOOK;
 
     // Variablen für die Zugriffspfade
@@ -320,13 +319,10 @@ public class Dialog {
         PUSH_TIM_BLACK = Property.getButtonPushTimBlack();
         LOG.trace("Button TimSchwarz: " + PUSH_TIM_BLACK);
 
-        PUSH_TOURNAMENT = Property.getButtonTournament();
+        PUSH_TOURNAMENT = Property.getButtonPushTournament();
         LOG.trace("Button Turnier: " + PUSH_TOURNAMENT);
 
-        PUSH_ARCHIVE = Property.getButtonArchive();
-        LOG.trace("Button Archiv: " + PUSH_ARCHIVE);
-
-        PUSH_BOOK = Property.getButtonBook();
+        PUSH_BOOK = Property.getButtonPushBook();
         LOG.trace("Button Buch: " + PUSH_BOOK);
 
 
