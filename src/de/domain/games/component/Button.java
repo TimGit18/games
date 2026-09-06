@@ -61,7 +61,6 @@ public class Button {
      * @param accessPaths
      * @param selection
      */
-
     public static void activate(JButton activatableButton, JTextArea textArea, List<String> accessPaths,
                                 String selection) {
         LOG.trace("Activate Button " + activatableButton.getText());
@@ -86,7 +85,15 @@ public class Button {
         activatableButton.addActionListener(actionListener);
     }
 
-
+    /**
+     * Die Methode activatePush aktiviert den übergebenen Push Control-Button, indem ein zugehöriger
+     * Push ActionListener definiert wird, der von dem übergebenen Parameter selection (für die Auswahl)
+     * abhängt. Der so definierte Push ActionListener wird mit einer TextArea versehen und dem Button hinzugefügt.
+     *
+     * @param activatablePushButton
+     * @param textArea
+     * @param selection
+     */
     public static void activatePush(JButton activatablePushButton, JTextArea textArea, String selection) {
         LOG.trace("Activate Push Button " + activatablePushButton.getText());
         if (selection.equals(Property.getButtonWhite())) {
@@ -94,6 +101,18 @@ public class Button {
         }
         else if (selection.equals(Property.getButtonBlack())) {
             actionListener = new ActionListenerPushBlack(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTimWhite())) {
+            actionListener = new ActionListenerPushTimWhite(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTimBlack())) {
+            actionListener = new ActionListenerPushTimBlack(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTournament())) {
+            actionListener = new ActionListenerPushTournament(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonBook())) {
+            actionListener = new ActionListenerPushBook(textArea, selection);
         }
         activatablePushButton.addActionListener(actionListener);
     }

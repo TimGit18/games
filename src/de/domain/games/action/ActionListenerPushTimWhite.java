@@ -1,11 +1,12 @@
 package de.domain.games.action;
 
-import de.domain.games.control.Dialog;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import javax.swing.JTextArea;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -17,10 +18,10 @@ import java.nio.charset.StandardCharsets;
  *
  */
 
-public class ActionListenerPushWhite extends ActionListenerButton {
+public class ActionListenerPushTimWhite extends ActionListenerButton {
 
 	// Statischer Logger für die Anwendung
-	public static Logger LOG = LogManager.getLogger(ActionListenerPushWhite.class.getName());
+	public static Logger LOG = LogManager.getLogger(ActionListenerPushTimWhite.class.getName());
 
 	// Statische Variablen für diesen ActionListener
 	public static JTextArea activeTextArea = null;
@@ -34,7 +35,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 	 * @param textArea
 	 * @param selection
 	 */
-	public ActionListenerPushWhite(JTextArea textArea, String selection) {
+	public ActionListenerPushTimWhite(JTextArea textArea, String selection) {
 		LOG.trace("Erzeuge Action Listener Push f\u00fcr " + selection);
 		activeTextArea = textArea;
 		activeSelection = selection;
@@ -49,12 +50,12 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 	 * @param event
 	 */
 	public void actionPerformed(ActionEvent event) {
-		LOG.trace("actionPerformed() für PushWhite.... " + event.getActionCommand());
+		LOG.trace("actionPerformed() für PushTimWhite.... " + event.getActionCommand());
 		activeTextArea.setText(null);
 		LOG.trace("Aktuelle Auswahl: " + activeSelection);
 
 		activeTextArea.append("Push " + activeSelection + "...bitte warten\n");
-		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss.bat");
+		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushTimWeiss.bat");
 		processBuilder.redirectErrorStream(true);
 		try {
 			Process process = processBuilder.start();

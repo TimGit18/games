@@ -1,11 +1,12 @@
 package de.domain.games.action;
 
-import de.domain.games.control.Dialog;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import javax.swing.JTextArea;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -17,10 +18,10 @@ import java.nio.charset.StandardCharsets;
  *
  */
 
-public class ActionListenerPushWhite extends ActionListenerButton {
+public class ActionListenerPushTimBlack extends ActionListenerButton {
 
 	// Statischer Logger für die Anwendung
-	public static Logger LOG = LogManager.getLogger(ActionListenerPushWhite.class.getName());
+	public static Logger LOG = LogManager.getLogger(ActionListenerPushTimBlack.class.getName());
 
 	// Statische Variablen für diesen ActionListener
 	public static JTextArea activeTextArea = null;
@@ -34,7 +35,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 	 * @param textArea
 	 * @param selection
 	 */
-	public ActionListenerPushWhite(JTextArea textArea, String selection) {
+	public ActionListenerPushTimBlack(JTextArea textArea, String selection) {
 		LOG.trace("Erzeuge Action Listener Push f\u00fcr " + selection);
 		activeTextArea = textArea;
 		activeSelection = selection;
@@ -54,8 +55,7 @@ public class ActionListenerPushWhite extends ActionListenerButton {
 		LOG.trace("Aktuelle Auswahl: " + activeSelection);
 
 		activeTextArea.append("Push " + activeSelection + "...bitte warten\n");
-		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushNeuWeiss.bat");
-		processBuilder.redirectErrorStream(true);
+		ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "C:\\Users\\schmi\\Daten\\Text\\Github\\PushTimSchwarz.bat");
 		try {
 			Process process = processBuilder.start();
 			InputStream processInputStream = process.getInputStream();

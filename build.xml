@@ -4,7 +4,7 @@
   <!-- ******************************************************* -->
   <!-- Verwendung des Property-Files hängt von der Umgebung ab -->
   <!-- ******************************************************* -->
-  <property file="properties/build.test.properties"/>
+  <property file="properties/build.schmi.properties"/>
   <!-- property file="properties/build.meta.properties"/    -->
   <!-- property file="properties/build.privat.properties"/  -->
 
@@ -30,7 +30,19 @@
     <mkdir dir="${runtime.build}"/>
     <mkdir dir="${runtime.properties}"/>
     <mkdir dir="${runtime.metainf}"/>
+    <mkdir dir="${runtime.test}"/>
+    <mkdir dir="${runtime.output}"/>
   </target>
+
+  <path id="junit.classpath">
+    <pathelement location="${junit.api}/junit-jupiter-api-5.6.1.jar"/>
+    <pathelement location="${junit.api}/junit-jupiter-engine-5.6.1.jar"/>
+    <pathelement location="${junit.api}/junit-platform-launcher-1.3.2.jar"/>
+    <pathelement location="${junit.api}/junit-platform-engine-1.6.1.jar"/>
+    <pathelement location="${junit.api}/junit-platform-commons-1.6.1.jar"/>
+    <pathelement location="${junit.api}/apiguardian-api-1.1.0.jar"/>
+    <pathelement location="${junit.api}/opentest4j-1.2.0.jar"/>
+  </path>
 
   <!-- ******************************************************* -->
   <!-- Target compile übersetzt die Quellen in Klassenobjekte  -->
@@ -50,9 +62,10 @@
   <!-- Target compile-test übersetzt die Testtreiber -->
   <!-- ********************************************* -->
   <target name="compile-test" depends="compile">
+    <mkdir dir="${runtime.test}"/>
     <javac srcdir="${project.test}" destdir="${runtime.test}" includeantruntime="false">
       <classpath>
-        <pathelement location="${junit.api}/junit-jupiter-api-5.6.1.jar"/>
+        <path refid="junit.classpath"/>
         <pathelement path="${runtime.build}"/>
       </classpath>
     </javac>
@@ -63,14 +76,15 @@
   <!-- ACHTUNG: die jupiter- und junit-apis werden in den ant/lib-Ordner von IntelliJ kopiert -->
   <!-- ************************************************************************************** -->
   <target name="test" depends="compile-test">
+    <mkdir dir="${runtime.output}"/>
     <junitlauncher>
       <classpath>
-        <pathelement path="${junit.api}"/>
+        <path refid="junit.classpath"/>
         <pathelement path="${runtime.test}"/>
         <pathelement path="${runtime.build}"/>
       </classpath>
       <testclasses outputdir="${runtime.output}">
-        <fileset dir="${runtime.test}"/>
+        <fileset dir="${runtime.test}" includes="**/*.class"/>
         <listener type="legacy-brief" sendSysOut="true"/>
         <listener type="legacy-xml" sendSysErr="true" sendSysOut="true"/>
       </testclasses>

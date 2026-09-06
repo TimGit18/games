@@ -85,6 +85,7 @@ public class Variation {
 			// Diese werden in der Liste gesammelt
 			if (line.matches(PORTABLE_GAME_NOTATION) && !line.matches(MAIN_LINE)) {
 				variationLinePath = variationPath + File.separator + line;
+				LOG.trace("Variante: " + variationLinePath);
 				variationLineList.add(variationLinePath);
 			}
 		}

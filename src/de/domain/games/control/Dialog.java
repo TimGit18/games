@@ -198,6 +198,10 @@ public class Dialog {
         LOG.trace("***********************************");
         Button.activatePush(buttonPushWhite,textArea,WHITE);
         Button.activatePush(buttonPushBlack,textArea,BLACK);
+        Button.activatePush(buttonPushTimWhite,textArea,TIM_WHITE);
+        Button.activatePush(buttonPushTimBlack,textArea,TIM_BLACK);
+        Button.activatePush(buttonPushTournament,textArea,TOURNAMENT);
+        Button.activatePush(buttonPushBook,textArea,BOOK);
 
         LOG.trace("************************************");
         LOG.trace("Step 10: Erzeugen des Control-Panels");

@@ -50,7 +50,7 @@ public class Book {
 		// Vorbereitung der Verarbeitung
 		prepare();
 
-		// Verarbeitung der Turniere
+		// Verarbeitung der Kapitel
 		processChapters();
 		processBooks();
 	}
@@ -123,7 +123,10 @@ public class Book {
 	}
 
 	/**
-	 * Die Methode processTournaments erstellt zu jedem Einzelturnier die
+	 * Die Methode processChapters erstellt zu jedem Buch die einzelnen Kaptitel.
+	 *
+	 *
+	 * Einzelturnier die
 	 * entsprechende Zieldatenbank im übergeordneten Jahresordner. Zunächst iteriert
 	 * die Methode über die Liste der Turnierjahre und ermittelt zu jedem Jahr die
 	 * Liste der Turniere. Anschließend wird über alle Turniere iteriert und der
@@ -134,9 +137,9 @@ public class Book {
 	 */
 	public static void processChapters() {
 
-		LOG.trace("*******************************");
-		LOG.trace("Verarbeitung der Einzelturniere");
-		LOG.trace("*******************************");
+		LOG.trace("******************************");
+		LOG.trace("Verarbeitung der Buch-Titel: ");
+		LOG.trace("******************************");
 
 		// Iteration über alle Turnierjahre
 		for (String bookTitle : bookTitleList) {
@@ -145,18 +148,18 @@ public class Book {
 			bookList = Directory.getDirectories(chapterPath);
 
 			// Iteration über alle Turniere dieses Jahres
-			for (String tournament : bookList) {
+			for (String book : bookList) {
 
 				// Pfad für die Zieldatenbank setzen
-				bookTargetPath = chapterPath + File.separator + tournament + PORTABLE_GAME_NOTATION;
-				LOG.trace("Erstelle Einzelturnier: " + bookTargetPath);
+				bookTargetPath = chapterPath + File.separator + book + PORTABLE_GAME_NOTATION;
+				LOG.trace("Erstelle Kapitel: " + bookTargetPath);
 
 				// Schreiber mit dem Pfad und Container für die Partien initialisieren
 				Game.initializeWriter(bookTargetPath);
 				bookGames = new ArrayList<>();
 
 				// Ermittlung der Partien (nur echte Partien)
-				bookPath = chapterPath + File.separator + tournament;
+				bookPath = chapterPath + File.separator + book;
 				bookGamesList = new ArrayList<>();
 				bookGamesList = Variation.getOrdinaryLines(bookPath);
 
@@ -176,11 +179,11 @@ public class Book {
 	public static void collectGames() {
 
 		// Partien aufsammeln
-		for (String tournamentGame : bookGamesList) {
+		for (String bookGame : bookGamesList) {
 			LOG.trace("*************************************");
-			LOG.trace("Verarbeite Partie f\u00fcr Jahr : " + tournamentGame);
+			LOG.trace("Verarbeite Partie f\u00fcr Buch : " + bookGame);
 			LOG.trace("*************************************");
-			Game.initializeReader(tournamentGame);
+			Game.initializeReader(bookGame);
 			bookGames = Game.addGame(bookGames);
 		}
 
