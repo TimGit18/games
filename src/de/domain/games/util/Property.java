@@ -60,13 +60,21 @@ public class Property {
 	private static String buttonClear;
 	private static String buttonBook;
 
-	// Statische Variablen für die Repository-Buttons
+	// Statische Variablen für die Push Repository-Buttons
 	private static String buttonPushWhite;
 	private static String buttonPushBlack;
 	private static String buttonPushTimWhite;
 	private static String buttonPushTimBlack;
 	private static String buttonPushTournament;
 	private static String buttonPushBook;
+
+	// Statische Variablen für die Pull Repository-Buttons
+	private static String buttonPullWhite;
+	private static String buttonPullBlack;
+	private static String buttonPullTimWhite;
+	private static String buttonPullTimBlack;
+	private static String buttonPullTournament;
+	private static String buttonPullBook;
 
 	// Sonstige Variablen
 	private static String errorHost;
@@ -135,13 +143,21 @@ public class Property {
 		buttonClear = "button.clear";
 		buttonBook = "button.book";
 
-		// Setzen der Repository-Buttons
+		// Setzen der Push Repository-Buttons
 		buttonPushWhite = "button.push.white";
 		buttonPushBlack = "button.push.black";
 		buttonPushTimWhite = "button.push.timWhite";
 		buttonPushTimBlack = "button.push.timBlack";
 		buttonPushTournament = "button.push.tournament";
 		buttonPushBook = "button.push.book";
+
+		// Setzen der Pull Repository-Buttons
+		buttonPullWhite = "button.pull.white";
+		buttonPullBlack = "button.pull.black";
+		buttonPullTimWhite = "button.pull.timWhite";
+		buttonPullTimBlack = "button.pull.timBlack";
+		buttonPullTournament = "button.pull.tournament";
+		buttonPullBook = "button.pull.book";
 
 		// Setzen der sonstigen Keys
 		frameTitle = "frame.title";
@@ -401,9 +417,9 @@ public class Property {
 	 */
 	public static String getButtonBook() { return properties.getProperty(buttonBook) ;}
 
-	//-------------------------------------------------//
-	// Ermitteln der Buttons für die Repository-Leiste //
-	//-------------------------------------------------//
+	//------------------------------------------------------//
+	// Ermitteln der Push Buttons für die Repository-Leiste //
+	//------------------------------------------------------//
 	/**
 	 * Die Methode getButtonPushWhite() liefert den Namen für den Push Weiß-Button.
 	 *
@@ -445,6 +461,52 @@ public class Property {
 	 * @return buttonPushBookValue
 	 */
 	public static String getButtonPushBook() { return properties.getProperty(buttonPushBook);	}
+
+	//------------------------------------------------------//
+	// Ermitteln der Pull-Buttons für die Repository-Leiste //
+	//------------------------------------------------------//
+	/**
+	 * Die Methode getButtonPullWhite() liefert den Namen für den Pull Weiß-Button.
+	 *
+	 * @return buttonPullWhiteValue
+	 */
+	public static String getButtonPullWhite() { return properties.getProperty(buttonPullWhite);	}
+
+	/**
+	 * Die Methode getButtonPullBlack() liefert den Namen für den Pull Schwarz-Button.
+	 *
+	 * @return buttonPullBlackValue
+	 */
+	public static String getButtonPullBlack() { return properties.getProperty(buttonPullBlack);	}
+
+	/**
+	 * Die Methode getButtonPullTimWhite() liefert den Namen für den Pull TimWeiß-Button.
+	 *
+	 * @return buttonPullTimWhiteValue
+	 */
+	public static String getButtonPullTimWhite() { return properties.getProperty(buttonPullTimWhite);	}
+
+	/**
+	 * Die Methode getButtonPullTimBlack() liefert den Namen für den Pull TimSchwarz-Button.
+	 *
+	 * @return buttonPullTimBlackValue
+	 */
+	public static String getButtonPullTimBlack() { return properties.getProperty(buttonPullTimBlack);	}
+
+	/**
+	 * Die Methode getButtonPullTournament() liefert den Namen für den Pull Tournament-Button.
+	 *
+	 * @return buttonPullTournamentValue
+	 */
+	public static String getButtonPullTournament() { return properties.getProperty(buttonPullTournament);	}
+
+	/**
+	 * Die Methode getButtonPullBook() liefert den Namen für den Pull Buch-Button.
+	 *
+	 * @return buttonPullBookValue
+	 */
+	public static String getButtonPullBook() { return properties.getProperty(buttonPullBook);	}
+
 
 	//-----------------------------------//
 	// Ermitteln der sonstigen Parameter //

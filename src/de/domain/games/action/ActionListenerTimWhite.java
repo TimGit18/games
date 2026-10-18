@@ -24,6 +24,9 @@ import java.util.List;
 
 public class ActionListenerTimWhite extends ActionListenerButton {
 
+	// Konstanten für die Klasse Opening
+	private static final String GIT_IDENTIFIER = ".git";
+
 	// Statischer Logger für die Anwendung
 	public static Logger LOG = LogManager.getLogger(ActionListenerTimWhite.class.getName());
 
@@ -80,6 +83,13 @@ public class ActionListenerTimWhite extends ActionListenerButton {
 		// Ermittlung aller Eröffnungen und Iteration über jede Eröffnung
 		openings = Directory.getDirectories(activeAccessPath);
 		for (String openingItem : openings) {
+
+			// Prüfen, ob das Element ein Git-Verzeichnis ist. Wenn ja, wird es ignoriert
+			if (openingItem.matches(GIT_IDENTIFIER)) {
+				LOG.trace("Ignoriere " + GIT_IDENTIFIER);
+				continue;
+			}
+
 			activeTextArea.append("Verarbeite " + openingItem + "...bitte warten\n");
 
 			// Festlegung des Eröffnungspfades

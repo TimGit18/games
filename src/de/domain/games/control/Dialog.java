@@ -50,13 +50,21 @@ public class Dialog {
     private static String ARCHIVE;
     private static String BOOK;
 
-    // Statische Button-Variablen für das Repository
+    // Statische Push Button-Variablen für das Repository
     private static String PUSH_WHITE;
     private static String PUSH_BLACK;
     private static String PUSH_TIM_WHITE;
     private static String PUSH_TIM_BLACK;
     private static String PUSH_TOURNAMENT;
     private static String PUSH_BOOK;
+
+    // Statische Pull Button-Variablen für das Repository
+    private static String PULL_WHITE;
+    private static String PULL_BLACK;
+    private static String PULL_TIM_WHITE;
+    private static String PULL_TIM_BLACK;
+    private static String PULL_TOURNAMENT;
+    private static String PULL_BOOK;
 
     // Variablen für die Zugriffspfade
     private static List<String> whitePaths = new ArrayList<>();
@@ -92,13 +100,21 @@ public class Dialog {
     private static JButton buttonBook;
     private static JButton buttonClear;
 
-    // Subkomponenten des Repository-Panels
+    // Subkomponenten des Push Repository-Panels
     private static JButton buttonPushWhite;
     private static JButton buttonPushBlack;
     private static JButton buttonPushTimWhite;
     private static JButton buttonPushTimBlack;
     private static JButton buttonPushTournament;
     private static JButton buttonPushBook;
+
+    // Subkomponenten des Pull Repository-Panels
+    private static JButton buttonPullWhite;
+    private static JButton buttonPullBlack;
+    private static JButton buttonPullTimWhite;
+    private static JButton buttonPullTimBlack;
+    private static JButton buttonPullTournament;
+    private static JButton buttonPullBook;
 
     /**
      * Die Methode build() konstruiert den Dialog für die Anwendung.
@@ -181,6 +197,19 @@ public class Dialog {
         Button.setButton(PUSH_BOOK);
         buttonPushBook = Button.getButton();
 
+        Button.setButton(PULL_WHITE);
+        buttonPullWhite = Button.getButton();
+        Button.setButton(PULL_BLACK);
+        buttonPullBlack = Button.getButton();
+        Button.setButton(PULL_TIM_WHITE);
+        buttonPullTimWhite = Button.getButton();
+        Button.setButton(PULL_TIM_BLACK);
+        buttonPullTimBlack = Button.getButton();
+        Button.setButton(PULL_TOURNAMENT);
+        buttonPullTournament = Button.getButton();
+        Button.setButton(PULL_BOOK);
+        buttonPullBook = Button.getButton();
+
         LOG.trace("**************************************");
         LOG.trace("Step 8: Aktivieren der Control-Buttons");
         LOG.trace("**************************************");
@@ -202,6 +231,13 @@ public class Dialog {
         Button.activatePush(buttonPushTimBlack,textArea,TIM_BLACK);
         Button.activatePush(buttonPushTournament,textArea,TOURNAMENT);
         Button.activatePush(buttonPushBook,textArea,BOOK);
+
+        Button.activatePull(buttonPullWhite,textArea,WHITE);
+        Button.activatePull(buttonPullBlack,textArea,BLACK);
+        Button.activatePull(buttonPullTimWhite,textArea,TIM_WHITE);
+        Button.activatePull(buttonPullTimBlack,textArea,TIM_BLACK);
+        Button.activatePull(buttonPullTournament,textArea,TOURNAMENT);
+        Button.activatePull(buttonPullBook,textArea,BOOK);
 
         LOG.trace("************************************");
         LOG.trace("Step 10: Erzeugen des Control-Panels");
@@ -329,6 +365,23 @@ public class Dialog {
         PUSH_BOOK = Property.getButtonPushBook();
         LOG.trace("Button Buch: " + PUSH_BOOK);
 
+        PULL_WHITE = Property.getButtonPullWhite();
+        LOG.trace("Button Pull Wei\u00df: " + PULL_WHITE);
+
+        PULL_BLACK = Property.getButtonPullBlack();
+        LOG.trace("Button Pull Schwarz: " + PULL_BLACK);
+
+        PULL_TIM_WHITE = Property.getButtonPullTimWhite();
+        LOG.trace("Button Pull TimWei\u00df: " + PULL_TIM_WHITE);
+
+        PULL_TIM_BLACK = Property.getButtonPullTimBlack();
+        LOG.trace("Button Pull TimSchwarz: " + PULL_TIM_BLACK);
+
+        PULL_TOURNAMENT = Property.getButtonPullTournament();
+        LOG.trace("Button Pull Turnier: " + PULL_TOURNAMENT);
+
+        PULL_BOOK = Property.getButtonPullBook();
+        LOG.trace("Button Pull Buch: " + PULL_BOOK);
 
     }
 

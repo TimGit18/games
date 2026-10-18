@@ -23,6 +23,9 @@ import java.util.List;
 
 public class ActionListenerBook extends ActionListenerButton {
 
+	// Konstanten für die Klasse Opening
+	private static final String GIT_IDENTIFIER = ".git";
+
 	// Statischer Logger für die Anwendung
 	public static Logger LOG = LogManager.getLogger(ActionListenerBook.class.getName());
 
@@ -79,6 +82,13 @@ public class ActionListenerBook extends ActionListenerButton {
 		books = Directory.getDirectories(activeAccessPath);
 
 		for (String book : books) {
+
+			// Prüfen, ob das Element ein Git-Verzeichnis ist. Wenn ja, wird es ignoriert
+			if (book.matches(GIT_IDENTIFIER)) {
+				LOG.trace("Ignoriere " + GIT_IDENTIFIER);
+				continue;
+			}
+
 			activeTextArea.append("Verarbeite " + book + "...bitte warten\n");
 
 			// Ermittlung des Turnierpfades

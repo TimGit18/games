@@ -117,6 +117,40 @@ public class Button {
         activatablePushButton.addActionListener(actionListener);
     }
 
+    /**
+     * Die Methode activatePull aktiviert den übergebenen Pull Control-Button, indem ein zugehöriger
+     * Pull ActionListener definiert wird, der von dem übergebenen Parameter selection (für die Auswahl)
+     * abhängt. Der so definierte Pull ActionListener wird mit einer TextArea versehen und dem Button hinzugefügt.
+     *
+     * @param activatablePullButton
+     * @param textArea
+     * @param selection
+     */
+    public static void activatePull(JButton activatablePullButton, JTextArea textArea, String selection) {
+        LOG.trace("Activate Pull Button " + activatablePullButton.getText());
+        /**
+        if (selection.equals(Property.getButtonWhite())) {
+            actionListener = new ActionListenerPullWhite(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonBlack())) {
+            actionListener = new ActionListenerPullBlack(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTimWhite())) {
+            actionListener = new ActionListenerPullTimWhite(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTimBlack())) {
+            actionListener = new ActionListenerPullTimBlack(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonTournament())) {
+            actionListener = new ActionListenerPullTournament(textArea, selection);
+        }
+        else if (selection.equals(Property.getButtonBook())) {
+            actionListener = new ActionListenerPullBook(textArea, selection);
+        }
+        activatablePullButton.addActionListener(actionListener);
+         */
+    }
+
 
 
 }

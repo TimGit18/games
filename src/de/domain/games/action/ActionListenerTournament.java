@@ -24,6 +24,9 @@ import de.domain.games.util.Directory;
 
 public class ActionListenerTournament extends ActionListenerButton {
 
+	// Konstanten für die Klasse Opening
+	private static final String GIT_IDENTIFIER = ".git";
+
 	// Statischer Logger für die Anwendung
 	public static Logger LOG = LogManager.getLogger(ActionListenerTournament.class.getName());
 
@@ -81,6 +84,13 @@ public class ActionListenerTournament extends ActionListenerButton {
 		tournamentYears = Directory.getDirectories(activeAccessPath);
 
 		for (String tournamentYear : tournamentYears) {
+
+			// Prüfen, ob das Element ein Git-Verzeichnis ist. Wenn ja, wird es ignoriert
+			if (tournamentYear.matches(GIT_IDENTIFIER)) {
+				LOG.trace("Ignoriere " + GIT_IDENTIFIER);
+				continue;
+			}
+
 			activeTextArea.append("Verarbeite " + tournamentYear + "...bitte warten\n");
 
 			// Ermittlung des Turnierpfades
