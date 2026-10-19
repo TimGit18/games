@@ -1,9 +1,6 @@
 package de.domain.games.component;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.LayoutManager;
+import java.awt.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -188,7 +185,7 @@ public class Panel {
 	 */
 	public static void setRepositoryPanel(String repoTitle) {
 		LOG.trace("Setzen des Repo-Panels");
-		repoPanel = new JPanel();
+		repoPanel = new JPanel(new GridLayout(0, 6, 5, 5));
 
 		LOG.trace("Erzeugen der Border des Repo-Panels");
 		repoTitledBorder = BorderFactory.createTitledBorder(repoTitle);
@@ -199,8 +196,7 @@ public class Panel {
 		repoPanel.setBorder(repoCompoundBorder);
 
 		LOG.trace("Setzen des Layouts des Repo-Panels");
-		repoLayoutManager = new BoxLayout(repoPanel, BoxLayout.LINE_AXIS);
-		repoPanel.setLayout(repoLayoutManager);
+
 	}
 
 

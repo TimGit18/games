@@ -128,7 +128,7 @@ public class Button {
      */
     public static void activatePull(JButton activatablePullButton, JTextArea textArea, String selection) {
         LOG.trace("Activate Pull Button " + activatablePullButton.getText());
-        /**
+
         if (selection.equals(Property.getButtonWhite())) {
             actionListener = new ActionListenerPullWhite(textArea, selection);
         }
@@ -148,7 +148,7 @@ public class Button {
             actionListener = new ActionListenerPullBook(textArea, selection);
         }
         activatablePullButton.addActionListener(actionListener);
-         */
+
     }
 
 

@@ -278,6 +278,12 @@ public class Dialog {
         repoPanel = Panel.addButtonToRepoPanel(buttonPushTimBlack);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushTournament);
         repoPanel = Panel.addButtonToRepoPanel(buttonPushBook);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullWhite);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullBlack);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullTimWhite);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullTimBlack);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullTournament);
+        repoPanel = Panel.addButtonToRepoPanel(buttonPullBook);
 
         LOG.trace("*******************************************************");
         LOG.trace("Step 15: Hinzuf\u00fcgen des Repo-Panels zum Dialog-Panel");
